@@ -1,1 +1,1 @@
-# LRC-Django
+# DLRC
