@@ -6,4 +6,3 @@ def home(request):
 
 def about(request):
 	return render(request, 'lrc/about.html')
-
