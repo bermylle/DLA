@@ -14,7 +14,7 @@
 <body>
 	{% include 'lrc/navbar.html' %}
 	
-	<div>
+	<!-- <div>
 		{% if messages %}
 			{% for msg in messages %}
 				<div class="alert alert-{{ msg.tags }}"> 
@@ -22,8 +22,8 @@
 				</div>
 			{% endfor %}
 		{% endif %}
-	</div>
-
+	</div> -->
+	{% block home_page %}{% endblock %}
 	{% block profile %}{% endblock %}
 	
 	{% block about %}{% endblock %}
