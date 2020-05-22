@@ -1,5 +1,5 @@
 # Distant Learning Area
-> - Full stack web app made with Django
+Full stack web app made with Django. 
 
 
 ## Design
