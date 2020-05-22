@@ -13,6 +13,10 @@ body {
 	margin-right: 10px;
 }
 
+.profile-msg {
+	color: white;
+}
+
 .logout-msg {
 	font-size: 16px;
 	color: white;

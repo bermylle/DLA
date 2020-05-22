@@ -24,17 +24,14 @@
                     <a class="dropdown-item" href="#">Cancel Session</a>
                 </div>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-            </li>
+            
+          
         </ul>
     </div>
 
-    <span class="hello-msg">Hello, {{request.user}}! </span>
-    <span><img class="prof-img" src="{{user.student.profile_pic.url}}" /></span>
-    
-        <span> <a href="{% url 'logout' %}" class="logout-msg"> Logout</a> </span>
+    <span class="hello-msg"> Hello, <a href="{% url 'profile-page' %}" class="profile-msg">{{request.user}}!</a> </span>
+    <span><img class="prof-img" src="{{user.profile.profile_pic.url}}" /></span>
+    <span> <a href="{% url 'logout' %}" class="logout-msg"> Logout</a> </span>
     
     {% else %}
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -52,13 +49,9 @@
             </li>
         </ul>
     </div>
-    <ul class="nav justify-content-end">
-        <li class="nav-item">
-            <a class="nav-link hello-msg" href="{% url 'login' %}">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link hello-msg" href="{% url 'register' %}">Register</a>
-        </li>
-    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form>
     {% endif %}
 </nav>

@@ -17,19 +17,20 @@
 <div class="row">
 	<div class="col-md-3">
 		<div class="card card-body">
-			<a class="btn btn-warning" href="{% url 'lrc-home' %}"> &#8592; Back to Home</a>
+				
 			<hr>
 			<h3 style="text-align: center">Account Settings</h3>
 			<hr>
-			<img class="profile-pic" src="{{ user.student.profile_pic.url }}">
-		
+			<img class="profile-pic" src="{{ user.profile.profile_pic.url }}">
+			<br>
+			<a class="btn btn-warning" href="{% url 'lrc-home' %}"> &#8592; Back to Home</a>
 		</div>
 	</div>
 	<div class="col-md-9">
 
 		<div class="card card-body">
-			
 			<h1> {{ user.username }} </h1>
+			<p> {{ user.email }} </p>
 		</div>
 
 		<form method="POST" action="" enctype="multipart/form-data">
