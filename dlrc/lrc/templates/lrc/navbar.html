@@ -1,33 +1,64 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"> DLRC </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
+    <a class="navbar-brand" href="#"> DLRC </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {% if user.is_authenticated %}
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Subjects</a>
-      </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Subjects</a>
+            </li>
 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Schedule
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Appoint Session</a>
+                    <a class="dropdown-item" href="#">View Session</a>
+                    <a class="dropdown-item" href="#">Cancel Session</a>
+                </div>
+            </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Schedule
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Appoint Session</a>
-          <a class="dropdown-item" href="#">View Session</a>
-          <a class="dropdown-item" href="#">Cancel Session</a>
-        </div>
-      </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+            </li>
+        </ul>
+    </div>
 
-      <li class="nav-item">
-        <a class="nav-link" href="/about">About</a>
-      </li>
+    <span class="hello-msg">Hello, {{request.user}}! </span>
+    <span><img class="prof-img" src="{{user.student.profile_pic.url}}" /></span>
+    
+        <span> <a href="{% url 'logout' %}" class="logout-msg"> Logout</a> </span>
+    
+    {% else %}
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Subjects</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+        </ul>
+    </div>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link hello-msg" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link hello-msg" href="{% url 'register' %}">Register</a>
+        </li>
     </ul>
-  </div>
+    {% endif %}
 </nav>
